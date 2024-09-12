@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf"),
+    url("./assets/fonts/Poppins-Bold.ttf"),
+    url("./assets/fonts/Poppins-Italic.ttf"),
+    url("./assets/fonts/Poppins-BoldItalic.ttf"),
+    url("./assets/fonts/Poppins-ExtraBold.ttf"),
+    url("./assets/fonts/Poppins-ExtraBoldItalic.ttf");
+  font-weight: 400, 700, 800;
+  font-style: normal italic;
+  font-display: swap;
+}
+
+:root {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Colors */
+  --color-primary: hsl(259 100% 65%);
+  --color-error: hsl(0 100% 67%);
+
+  --color-white: hsl(0 0% 100%);
+  --color-off-white: hsl(0 0% 94%);
+  --color-light-grey: hsl(0 0% 86%);
+  --color-smokey-grey: hsl(0 1% 44%);
+  --color-off-black: hsl(0 0% 8%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
