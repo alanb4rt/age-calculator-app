@@ -8,7 +8,7 @@ export default function InputField({ label, value, placeholder }) {
         {label}
       </label>
       <input
-        className="w-full border border-[var(--color-light-grey)] rounded-lg px-6 py-4 text-[32px] font-extrabold focus:outline-none focus:border-[var(--color-primary)] caret-[var(--color-primary)]"
+        className="w-full max-w-[8ch] border border-[var(--color-light-grey)] rounded-lg px-6 py-4 text-[32px] font-extrabold focus:outline-none focus:border-[var(--color-primary)] caret-[var(--color-primary)]"
         type="text"
         placeholder={placeholder}
         inputMode="numeric"
