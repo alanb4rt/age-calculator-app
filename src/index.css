@@ -19,6 +19,7 @@
   font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  color: var(--color-off-black);
 
   /* Colors */
   --color-primary: hsl(259 100% 65%);
@@ -40,4 +41,5 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-off-white);
 }
