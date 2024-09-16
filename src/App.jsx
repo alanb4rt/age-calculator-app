@@ -1,13 +1,34 @@
 import InputField from "./components/InputField";
 import iconArrow from "./assets/images/icon-arrow.svg";
 import ResultDisplay from "./components/ResultDisplay";
+import { useEffect, useState } from "react";
+
+const initialInput = {
+  day: "",
+  month: "",
+  year: "",
+};
 
 export default function App() {
+  const [dateInput, setDateInput] = useState({ ...initialInput });
+
+  const handleInputChange = (key, newValue) => {
+    const numberRegex = /^\d+$/;
+
+    if (numberRegex.test(newValue)) {
+      setDateInput((prev) => ({ ...prev, [key]: newValue }));
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     console.log("ok");
   };
+
+  useEffect(() => {
+    console.log(dateInput);
+  }, [dateInput]);
 
   return (
     <>
@@ -16,9 +37,24 @@ export default function App() {
           <main className="gap-8 bg-[var(--color-white)] rounded-xl rounded-br-[8rem] shadow p-12">
             <form onSubmit={handleSubmit}>
               <div className="flex gap-8">
-                <InputField label="DAY" value="" placeholder="DD" />
-                <InputField label="MONTH" value="" placeholder="MM" />
-                <InputField label="YEAR" value="" placeholder="YYYY" />
+                <InputField
+                  label="DAY"
+                  value={dateInput.day}
+                  onChange={handleInputChange}
+                  placeholder="DD"
+                />
+                <InputField
+                  label="MONTH"
+                  value={dateInput.month}
+                  onChange={handleInputChange}
+                  placeholder="MM"
+                />
+                <InputField
+                  label="YEAR"
+                  value={dateInput.year}
+                  onChange={handleInputChange}
+                  placeholder="YYYY"
+                />
               </div>
               <div className="flex items-center mb-4">
                 <hr className="w-full border-t-[var(--color-light-grey)]" />
