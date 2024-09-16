@@ -1,5 +1,6 @@
 import InputField from "./components/InputField";
 import iconArrow from "./assets/images/icon-arrow.svg";
+import ResultDisplay from "./components/ResultDisplay";
 
 export default function App() {
   const handleSubmit = (e) => {
@@ -26,6 +27,11 @@ export default function App() {
                 </button>
               </div>
             </form>
+            <div>
+              <ResultDisplay label="years" value="" />
+              <ResultDisplay label="months" value="" />
+              <ResultDisplay label="days" value="" />
+            </div>
           </main>
         </div>
       </div>
