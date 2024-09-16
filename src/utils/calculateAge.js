@@ -19,8 +19,8 @@ export const calculateAge = (date) => {
     }
 
     return {
-        years: yearDifference,
-        months: monthDifference,
-        days: dayDifference,
+        year: yearDifference,
+        month: monthDifference,
+        day: dayDifference,
     };
 };

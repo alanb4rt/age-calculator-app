@@ -12,29 +12,34 @@ const initialInput = {
 
 export default function App() {
   const [dateInput, setDateInput] = useState({ ...initialInput });
+  const [dateDifference, setDateDifference] = useState({ ...initialInput });
 
   const handleInputChange = (key, newValue) => {
     const numberRegex = /^\d+$/;
+    const value = newValue ? Number(newValue) : "";
 
     if (numberRegex.test(newValue) || !newValue) {
-      setDateInput((prev) => ({ ...prev, [key]: newValue }));
+      setDateInput((prev) => ({ ...prev, [key]: value }));
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (Object.values(dateInput).some((val) => val === "")) return;
+
     const { day, month, year } = dateInput;
     const date = new Date(year, month - 1, day);
 
     const age = calculateAge(date);
 
-    console.log(`${age.days}-${age.months}-${age.years}`);
+    setDateDifference(age);
   };
 
   useEffect(() => {
-    console.log(dateInput);
-  }, [dateInput]);
+    console.log("input", dateInput);
+    console.log(dateDifference);
+  }, [dateInput, dateDifference]);
 
   return (
     <>
@@ -70,9 +75,9 @@ export default function App() {
               </div>
             </form>
             <div>
-              <ResultDisplay label="years" value="" />
-              <ResultDisplay label="months" value="" />
-              <ResultDisplay label="days" value="" />
+              <ResultDisplay label="years" value={dateDifference.year} />
+              <ResultDisplay label="months" value={dateDifference.month} />
+              <ResultDisplay label="days" value={dateDifference.day} />
             </div>
           </main>
         </div>
