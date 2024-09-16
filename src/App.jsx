@@ -1,7 +1,8 @@
-import InputField from "./components/InputField";
-import iconArrow from "./assets/images/icon-arrow.svg";
-import ResultDisplay from "./components/ResultDisplay";
 import { useEffect, useState } from "react";
+import iconArrow from "./assets/images/icon-arrow.svg";
+import InputField from "./components/InputField";
+import ResultDisplay from "./components/ResultDisplay";
+import { calculateAge } from "./utils/calculateAge";
 
 const initialInput = {
   day: "",
@@ -15,7 +16,7 @@ export default function App() {
   const handleInputChange = (key, newValue) => {
     const numberRegex = /^\d+$/;
 
-    if (numberRegex.test(newValue)) {
+    if (numberRegex.test(newValue) || !newValue) {
       setDateInput((prev) => ({ ...prev, [key]: newValue }));
     }
   };
@@ -23,7 +24,12 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("ok");
+    const { day, month, year } = dateInput;
+    const date = new Date(year, month - 1, day);
+
+    const age = calculateAge(date);
+
+    console.log(`${age.days}-${age.months}-${age.years}`);
   };
 
   useEffect(() => {
