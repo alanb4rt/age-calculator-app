@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "age-calculator-app",
+  base: "/age-calculator-app/",
   plugins: [react()],
 })
