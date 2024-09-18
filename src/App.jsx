@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import iconArrow from "./assets/images/icon-arrow.svg";
 import InputField from "./components/InputField";
 import ResultDisplay from "./components/ResultDisplay";
 import { calculateAge } from "./utils/calculateAge";
+import { validateInputs } from "./utils/validateInputs";
 
 const initialInput = {
   day: "",
@@ -12,6 +13,7 @@ const initialInput = {
 
 export default function App() {
   const [dateInput, setDateInput] = useState({ ...initialInput });
+  const [errors, setErrors] = useState({});
   const [dateDifference, setDateDifference] = useState({ ...initialInput });
 
   const handleInputChange = (key, newValue) => {
@@ -26,20 +28,14 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (Object.values(dateInput).some((val) => val === "")) return;
+    const inputErrors = validateInputs(dateInput);
+    setErrors(inputErrors);
 
-    const { day, month, year } = dateInput;
-    const date = new Date(year, month - 1, day);
-
-    const age = calculateAge(date);
-
-    setDateDifference(age);
+    const hasErrors = Object.keys(inputErrors).length > 0;
+    setDateDifference(
+      hasErrors ? { ...initialInput } : calculateAge(dateInput)
+    );
   };
-
-  useEffect(() => {
-    console.log("input", dateInput);
-    console.log(dateDifference);
-  }, [dateInput, dateDifference]);
 
   return (
     <>
@@ -53,20 +49,28 @@ export default function App() {
                   value={dateInput.day}
                   onChange={handleInputChange}
                   placeholder="DD"
+                  error={errors.day}
                 />
                 <InputField
                   label="MONTH"
                   value={dateInput.month}
                   onChange={handleInputChange}
                   placeholder="MM"
+                  error={errors.month}
                 />
                 <InputField
                   label="YEAR"
                   value={dateInput.year}
                   onChange={handleInputChange}
                   placeholder="YYYY"
+                  error={errors.year}
                 />
               </div>
+              {errors.date && (
+                <p className="text-sm italic text-[var(--color-error)] mt-2">
+                  {errors.date}
+                </p>
+              )}
               <div className="flex items-center mb-4">
                 <hr className="w-full border-t-[var(--color-light-grey)]" />
                 <button className="cursor-pointer bg-[var(--color-primary)] rounded-full p-6 hover:bg-[var(--color-off-black)]">

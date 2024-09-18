@@ -1,8 +1,10 @@
-export const calculateAge = (date) => {
+export const calculateAge = (dateInput) => {
+    const { day, month, year } = dateInput;
     const currentDate = new Date();
-    let yearDifference = currentDate.getFullYear() - date.getFullYear();
-    let monthDifference = currentDate.getMonth() - date.getMonth();
-    let dayDifference = currentDate.getDate() - date.getDate();
+
+    let yearDifference = currentDate.getFullYear() - year;
+    let monthDifference = currentDate.getMonth() - month;
+    let dayDifference = currentDate.getDate() - day;
 
     if (dayDifference < 0) {
         monthDifference--;
