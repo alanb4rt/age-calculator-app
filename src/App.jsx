@@ -40,10 +40,10 @@ export default function App() {
   return (
     <>
       <div className="flex items-center min-h-screen">
-        <div className="w-full max-w-[900px] mx-auto p-8">
-          <main className="gap-8 bg-[var(--color-white)] rounded-xl rounded-br-[8rem] shadow p-12">
+        <div className="w-full max-w-[900px] mx-auto p-4">
+          <main className="gap-8 bg-[var(--color-white)] rounded-xl rounded-br-[8rem] shadow p-6 sm:p-12">
             <form onSubmit={handleSubmit}>
-              <div className="flex gap-8">
+              <div className="flex gap-4 sm:gap-8">
                 <InputField
                   label="DAY"
                   value={dateInput.day}
@@ -71,11 +71,12 @@ export default function App() {
                   {errors.date}
                 </p>
               )}
-              <div className="flex items-center mb-4">
+              <div className="flex items-center my-6 sm:my-4">
                 <hr className="w-full border-t-[var(--color-light-grey)]" />
-                <button className="cursor-pointer bg-[var(--color-primary)] rounded-full p-6 hover:bg-[var(--color-off-black)]">
+                <button className="cursor-pointer bg-[var(--color-primary)] rounded-full p-4 sm:p-6 hover:bg-[var(--color-off-black)]">
                   <img src={iconArrow} alt="Icon arrow" />
                 </button>
+                <hr className="sm:hidden w-full border-t-[var(--color-light-grey)]" />
               </div>
             </form>
             <div>

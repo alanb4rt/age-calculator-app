@@ -12,11 +12,14 @@ export default function InputField({
         color: error ? "var(--color-error)" : "var(--color-smokey-grey)",
       }}
     >
-      <label htmlFor="label" className="text-current font-bold tracking-widest">
+      <label
+        htmlFor="label"
+        className="text-current font-bold leading-none tracking-widest"
+      >
         {label}
       </label>
       <input
-        className="w-full text-[var(--color-off-black)] max-w-[8ch] border rounded-lg px-6 py-4 text-[32px] font-extrabold focus:outline-none focus:border-[var(--color-primary)] caret-[var(--color-primary)]"
+        className="w-full text-[var(--color-off-black)] max-w-[8ch] border rounded-lg px-3 sm:px-6 py-2 sm:py-4 text-xl sm:text-3xl leading-none font-extrabold focus:outline-none focus:border-[var(--color-primary)] caret-[var(--color-primary)]"
         style={{
           borderColor: error ? "var(--color-error)" : "var(--color-light-grey)",
         }}
@@ -27,7 +30,7 @@ export default function InputField({
         inputMode="numeric"
       />
       {error && (
-        <span className="text-sm italic text-[var(--color-error)]">
+        <span className="text-[0.6rem] sm:text-sm italic text-[var(--color-error)]">
           {error}
         </span>
       )}
