@@ -45,21 +45,21 @@ export default function App() {
             <form onSubmit={handleSubmit}>
               <div className="flex gap-4 sm:gap-8">
                 <InputField
-                  label="DAY"
+                  label="day"
                   value={dateInput.day}
                   onChange={handleInputChange}
                   placeholder="DD"
                   error={errors.day}
                 />
                 <InputField
-                  label="MONTH"
+                  label="month"
                   value={dateInput.month}
                   onChange={handleInputChange}
                   placeholder="MM"
                   error={errors.month}
                 />
                 <InputField
-                  label="YEAR"
+                  label="year"
                   value={dateInput.year}
                   onChange={handleInputChange}
                   placeholder="YYYY"
