@@ -41,7 +41,7 @@ export default function App() {
     <>
       <div className="flex items-center min-h-screen">
         <div className="w-full max-w-[900px] mx-auto p-4">
-          <main className="gap-8 bg-[var(--color-white)] rounded-xl rounded-br-[8rem] shadow p-6 sm:p-12">
+          <main className="gap-8 bg-[var(--color-white)] rounded-2xl rounded-br-[8rem] shadow p-6 sm:p-12">
             <form onSubmit={handleSubmit}>
               <div className="flex gap-4 sm:gap-8">
                 <InputField

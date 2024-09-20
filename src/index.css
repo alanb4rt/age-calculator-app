@@ -4,14 +4,7 @@
 
 @font-face {
   font-family: "Poppins";
-  src: url("./assets/fonts/Poppins-Regular.ttf"),
-    url("./assets/fonts/Poppins-Bold.ttf"),
-    url("./assets/fonts/Poppins-Italic.ttf"),
-    url("./assets/fonts/Poppins-BoldItalic.ttf"),
-    url("./assets/fonts/Poppins-ExtraBold.ttf"),
-    url("./assets/fonts/Poppins-ExtraBoldItalic.ttf");
-  font-weight: 400, 700, 800;
-  font-style: normal italic;
+  src: url("./assets/fonts/Poppins.otf");
   font-display: swap;
 }
 
