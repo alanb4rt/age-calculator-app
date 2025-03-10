@@ -4,19 +4,21 @@ import InputField from "./components/InputField";
 import ResultDisplay from "./components/ResultDisplay";
 import { calculateAge } from "./utils/calculateAge";
 import { validateInputs } from "./utils/validateInputs";
+import { DateInputType } from "./types/date.type";
+import { ErrorsType } from "./types/errors.type";
 
-const initialInput = {
+const initialInput: DateInputType = {
   day: "",
   month: "",
   year: "",
 };
 
 export default function App() {
-  const [dateInput, setDateInput] = useState({ ...initialInput });
-  const [errors, setErrors] = useState({});
-  const [dateDifference, setDateDifference] = useState({ ...initialInput });
+  const [dateInput, setDateInput] = useState<DateInputType>({ ...initialInput });
+  const [errors, setErrors] = useState<ErrorsType>({});
+  const [dateDifference, setDateDifference] = useState<DateInputType>({ ...initialInput });
 
-  const handleInputChange = (key, newValue) => {
+  const handleInputChange = (key: keyof DateInputType, newValue: string) => {
     const numberRegex = /^\d+$/;
     const value = newValue ? Number(newValue) : "";
 
@@ -25,7 +27,7 @@ export default function App() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const inputErrors = validateInputs(dateInput);
@@ -33,7 +35,7 @@ export default function App() {
 
     const hasErrors = Object.keys(inputErrors).length > 0;
     setDateDifference(
-      hasErrors ? { ...initialInput } : calculateAge(dateInput)
+      hasErrors ? initialInput : calculateAge(dateInput)
     );
   };
 

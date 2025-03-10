@@ -1,10 +1,20 @@
+import { DateInputType } from "../types/date.type";
+
+interface InputFieldProps {
+  label: keyof DateInputType;
+  value: number | "";
+  onChange: (label: keyof DateInputType, value: string) => void;
+  placeholder: string;
+  error?: string;
+}
+
 export default function InputField({
   label,
   value,
   onChange,
   placeholder,
   error,
-}) {
+}: InputFieldProps) {
   return (
     <div
       className="flex flex-col gap-2"
